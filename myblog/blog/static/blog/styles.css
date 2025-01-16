@@ -1,0 +1,12 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+h2 {
+    font-size: 1.75rem;
+}
+
+.text-muted {
+    font-style: italic;
+}

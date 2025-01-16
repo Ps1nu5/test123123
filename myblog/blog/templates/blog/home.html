@@ -1,0 +1,37 @@
+{% extends "blog/base.html" %}  
+  
+{% block title %}Home - My Blog{% endblock %}  
+  
+{% block content %}  
+    <h2 class="text-center my-4">Welcome to My Blog!</h2>  
+  
+    {% if message %}  
+        <div class="alert alert-success" role="alert">  
+            {{ message }}  
+        </div>  
+    {% endif %}  
+  
+    <!-- Форма добавления постов -->  
+    <div class="card mb-4">  
+        <div class="card-header">Add a New Post</div>  
+        <div class="card-body">  
+            <form method="post">  
+                {% csrf_token %}  
+                {{ form.as_p }}  
+                <button type="submit" class="btn btn-outline-dark">Add Post</button>
+            </form>  
+        </div>  
+    </div>  
+  
+    <!-- Список постов -->  
+    {% if posts %}  
+        <h3>Posts:</h3>  
+        <ul class="list-group">  
+            {% for post in posts %}  
+            <li class="list-group-item"><p>{{ post.title }}</p><p class="text-muted">{{ post.author }}</p></li>  
+            {% endfor %}  
+        </ul>  
+    {% else %}  
+        <p class="text-muted">No posts yet.</p>  
+    {% endif %}  
+{% endblock %}
